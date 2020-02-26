@@ -84,9 +84,8 @@ export default {
     },
     nextFourItems() {
       const url = parseInt(this.currentPage) + this.numberPerPage;
-      window.location.href = this.currentPage
-        ? `${window.location.origin}/${url}`
-        : `/${this.numberPerPage}`;
+      this.$router.push({ path: `/${url}` });
+      this.$router.go();
     },
     loadItems(timeOut) {
       this.loading = true;
