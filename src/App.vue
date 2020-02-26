@@ -114,21 +114,14 @@ export default {
       this.dialog = true;
       this.number = false;
       this.email = false;
-
       this.modalInfo = [...this.currentInfo.filter(info => info.id === id)];
     }
   },
   created: function() {
-    if (this.currentPage === "") {
-      this.currentInfo = this.infos.slice(0, this.numberPerPage);
-    } else if (isNaN(parseInt(this.currentPage))) {
-      this.currentInfo = [];
-    } else {
-      this.currentInfo = this.infos.slice(
-        this.currentPage,
-        parseInt(this.currentPage) + this.numberPerPage
-      );
-    }
+    this.currentInfo = this.infos.slice(
+      this.currentPage,
+      parseInt(this.currentPage) + this.numberPerPage
+    );
   }
 };
 </script>
