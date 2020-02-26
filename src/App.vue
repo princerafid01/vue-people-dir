@@ -72,7 +72,7 @@ export default {
       currentInfo: [],
       modalInfo: [],
       numberPerPage: 4, // page per items
-      currentPage: window.location.pathname.split("/")[1] // Current page number
+      currentPage: this.$route.params.number ? this.$route.params.number : 0 // Current page number
     };
   },
   methods: {
@@ -119,7 +119,7 @@ export default {
       this.modalInfo = [...this.currentInfo.filter(info => info.id === id)];
     }
   },
-  created() {
+  created: function() {
     if (this.currentPage === "") {
       this.currentInfo = this.infos.slice(0, this.numberPerPage);
     } else if (isNaN(parseInt(this.currentPage))) {
